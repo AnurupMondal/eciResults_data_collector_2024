@@ -1,6 +1,7 @@
 import redis
 import json
 from celery import Celery
+from celery.schedules import crontab
 from datetime import datetime
 import pytz
 from scraping_functions import scrape_election_data  # Assume scraping functions are in this module
