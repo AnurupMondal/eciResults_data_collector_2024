@@ -1,9 +1,9 @@
 ![image](https://github.com/AnurupMondal/eciResults_data_collector_2024/assets/45717023/1af89516-04ea-4b00-8449-5e2935a99dd9)
 Model for the above Project
 
-# Election Data Viewer
+# eciResults_data_collector_2024
 
-Election Data Viewer is a web application that scrapes election data, stores it in Redis, and displays it using a Streamlit frontend. The backend is built with FastAPI and Celery, and the entire application is containerized using Docker.
+eciResults_data_collector_2024 is a web application that scrapes election data, stores it in Redis, and displays it using a Streamlit frontend. The backend is built with FastAPI and Celery, and the entire application is containerized using Docker.
 
 Dark Mode
 ![image](https://github.com/AnurupMondal/eciResults_data_collector_2024/assets/45717023/eb50dfbd-6fa2-4053-8ac0-c4a51e55725d)
@@ -46,8 +46,8 @@ The backend uses Celery for periodic data scraping tasks, and Docker Compose is 
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/election-data-viewer.git
-   cd election-data-viewer
+   git clone https://github.com/your-username/eciResults_data_collector_2024.git
+   cd eciResults_data_collector_2024
 
 2. **Build and start the Docker containers:**
    ```sh
