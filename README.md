@@ -1,2 +1,2 @@
-![image](https://github.com/AnurupMondal/eciResults_data_collector_2024/assets/45717023/8d179d76-4c38-4904-847b-6e159b73e652)
+![image](https://github.com/AnurupMondal/eciResults_data_collector_2024/assets/45717023/1af89516-04ea-4b00-8449-5e2935a99dd9)
 Model for the above Project
