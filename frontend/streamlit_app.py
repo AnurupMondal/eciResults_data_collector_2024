@@ -24,6 +24,23 @@ def format_votes(votes):
 # Set Streamlit page configuration
 st.set_page_config(page_title="Election Data Viewer", page_icon="📊", layout="wide")
 
+# Apply custom CSS for table styling
+st.markdown(
+    """
+    <style>
+    .dataframe {
+        width: 100%;
+        text-align: center;
+    }
+    .dataframe th, .dataframe td {
+        text-align: center;
+        padding: 8px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Fetch election data
 data_response = fetch_election_data()
 election_data = data_response.get("data", {})
@@ -39,8 +56,7 @@ if election_data:
     if selected_state:
         selected_constituency = st.selectbox('Select a Constituency', list(election_data[selected_state].keys()))
         if selected_constituency:
-            st.write(f"Selected State/UT: {selected_state}")
-            st.write(f"Selected Constituency: {selected_constituency}")
+            
             st.write("Election Data:")
 
             election_data_for_constituency = election_data[selected_state][selected_constituency]

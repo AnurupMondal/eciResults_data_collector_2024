@@ -26,3 +26,6 @@ def scrape_and_store_data():
 @celery.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
     sender.add_periodic_task(crontab(minute='*/5'), scrape_and_store_data.s())
+    
+    # Run the task immediately
+    scrape_and_store_data.apply_async()
