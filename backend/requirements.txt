@@ -1,0 +1,8 @@
+fastapi
+redis
+celery
+requests
+beautifulsoup4
+streamlit
+pandas
+uvicorn

@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:6.0-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: ./backend
+    container_name: backend
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    ports:
+      - "8000:8000"
+
+  celery:
+    build: ./backend
+    container_name: celery
+    depends_on:
+      - redis
+    command: celery -A tasks worker --loglevel=info
+
+  celery-beat:
+    build: ./backend
+    container_name: celery-beat
+    depends_on:
+      - redis
+    command: celery -A tasks beat --loglevel=info
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    depends_on:
+      - redis
+      - backend
+    ports:
+      - "8501:8501"
