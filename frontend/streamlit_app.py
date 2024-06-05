@@ -13,7 +13,7 @@ def fetch_election_data():
 
 def format_votes(votes):
     # Regex to match the vote pattern and change
-    match = re.match(r"^(\d+)\s*\(([\+\-]\s*\d+)\)$", votes)
+    match = re.match(r"^(\d+)\s*\(\s*([+-]\s*\d+)\s*\)$", votes)
     if match:
         main_votes = match.group(1)
         change = match.group(2).replace(" ", "")
