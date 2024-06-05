@@ -49,7 +49,7 @@ timestamp = data_response.get("timestamp", "N/A")
 # Display the timestamp in the top left corner
 st.markdown(f"**Last Fetched: {timestamp}**", unsafe_allow_html=True)
 
-st.title('Election Data Viewer')
+st.title('Election Data for 2024 Lok Sabha Elections')
 
 if election_data:
     selected_state = st.selectbox('Select a State/Union Territory', list(election_data.keys()))
