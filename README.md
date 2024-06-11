@@ -60,7 +60,7 @@ The backend uses Celery for periodic data scraping tasks, and Docker Compose is 
 ## Usage
 
 Once the containers are up and running, open your web browser and navigate to:
-    ```sh
+
     http://localhost:8501
 
 The Streamlit app will display the election data, with the most recent fetch timestamp shown at the top left corner.
