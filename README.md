@@ -7,9 +7,12 @@ eciResults_data_collector_2024 is a web application that scrapes election data, 
 
 Dark Mode
 ![image](https://github.com/AnurupMondal/eciResults_data_collector_2024/assets/45717023/eb50dfbd-6fa2-4053-8ac0-c4a51e55725d)
+![image](https://github.com/AnurupMondal/eciResults_data_collector_2024/assets/45717023/d229a673-a30f-47fb-93be-8f467901a731)
 
 Light Mode
 ![image](https://github.com/AnurupMondal/eciResults_data_collector_2024/assets/45717023/f32aee97-3d37-47e9-a36c-7175365a6ece)
+![image](https://github.com/AnurupMondal/eciResults_data_collector_2024/assets/45717023/8e9e24dd-dd76-4837-b6a3-ab10ba9699f7)
+
 
 ## Table of Contents
 
@@ -57,13 +60,13 @@ The backend uses Celery for periodic data scraping tasks, and Docker Compose is 
 ## Usage
 
 Once the containers are up and running, open your web browser and navigate to:
-    ```sh
+
     http://localhost:8501
 
 The Streamlit app will display the election data, with the most recent fetch timestamp shown at the top left corner.
 
 ## Project Structure
-     ```sh
+     
       ├── backend/
       │   ├── main.py
       │   ├── tasks.py
@@ -78,7 +81,7 @@ The Streamlit app will display the election data, with the most recent fetch tim
       └── README.md
 
 ## Docker Configuration
-     ```sh
+
       version: '3.8'
       services:
         redis:
