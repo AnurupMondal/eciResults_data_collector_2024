@@ -66,7 +66,7 @@ Once the containers are up and running, open your web browser and navigate to:
 The Streamlit app will display the election data, with the most recent fetch timestamp shown at the top left corner.
 
 ## Project Structure
-     ```sh
+     
       ├── backend/
       │   ├── main.py
       │   ├── tasks.py
@@ -81,7 +81,7 @@ The Streamlit app will display the election data, with the most recent fetch tim
       └── README.md
 
 ## Docker Configuration
-     ```sh
+
       version: '3.8'
       services:
         redis:
