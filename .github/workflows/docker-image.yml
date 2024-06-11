@@ -39,7 +39,7 @@ jobs:
         context: ./backend
         file: ./backend/Dockerfile
         push: true
-        tags: user/backend:latest
+        tags: anurup75/eciResults_data_collector_2024-backend:latest
 
     - name: Build and push frontend image
       uses: docker/build-push-action@v3
@@ -47,7 +47,7 @@ jobs:
         context: ./frontend
         file: ./frontend/Dockerfile
         push: true
-        tags: user/frontend:latest
+        tags: anurup75/eciResults_data_collector_2024-frontend:latest
 
     - name: Start Docker Compose services
       run: |
