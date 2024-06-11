@@ -5,7 +5,7 @@ services:
     image: redis:6.0-alpine
     container_name: redis
     ports:
-      - "6379:6379"
+      - "6380:6379"
 
   backend:
     build: ./backend
@@ -32,9 +32,9 @@ services:
       - redis
     command: celery -A tasks beat --loglevel=info
 
-  frontend:
+  streamlit:
     build: ./frontend
-    container_name: frontend
+    container_name: streamlit
     depends_on:
       - redis
       - backend
@@ -45,7 +45,7 @@ services:
     image: nginx:latest
     container_name: nginx
     depends_on:
-      - frontend
+      - streamlit
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt:/etc/letsencrypt
