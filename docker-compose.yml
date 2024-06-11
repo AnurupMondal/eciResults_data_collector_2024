@@ -39,7 +39,7 @@ services:
       - redis
       - backend
     ports:
-      - "8501:8501"
+      - "80:8501"
 
   nginx:
     image: nginx:latest
