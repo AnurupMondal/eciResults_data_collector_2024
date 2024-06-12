@@ -5,7 +5,7 @@ services:
     image: redis:6.0-alpine
     container_name: redis
     ports:
-      - "6380:6379"
+      - "6379:6379"
 
   backend:
     build: ./backend
@@ -16,7 +16,7 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     ports:
-      - "8001:8000"
+      - "8000:8000"
 
   celery:
     build: ./backend
@@ -51,4 +51,4 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
-      - "8443:443"
+      - "443:443"
