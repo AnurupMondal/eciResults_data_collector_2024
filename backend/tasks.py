@@ -21,7 +21,7 @@ def scrape_and_store_data():
     redis_client.set('election_data', json.dumps(election_data))
     redis_client.set('election_data_timestamp', timestamp)
 
-    # Set an expiration time of 1/2 hour (1800 seconds)
+    # Set an expiration time of 15mins (900 seconds)
     redis_client.expire('election_data', 900)
     redis_client.expire('election_data_timestamp', 900)
     print(f"Election data stored in Redis at {timestamp}.")
