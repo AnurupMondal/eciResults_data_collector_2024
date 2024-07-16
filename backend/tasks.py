@@ -20,12 +20,25 @@ def scrape_and_store_data():
     timestamp = datetime.now(pytz.utc).astimezone(india_tz).strftime('%d/%m/%y, %I:%M:%S %p')
     redis_client.set('election_data', json.dumps(election_data))
     redis_client.set('election_data_timestamp', timestamp)
+
+    # Set an expiration time of 1/2 hour (1800 seconds)
+    redis_client.expire('election_data', 1800)
+    redis_client.expire('election_data_timestamp', 1800)
     print(f"Election data stored in Redis at {timestamp}.")
 
-    
+@celery.task
+def cleanup_old_data():
+    # For example, remove all keys with a certain pattern
+    keys = redis_client.keys('election_data_*')
+    for key in keys:
+        redis_client.delete(key)
+    print("Old election data cleaned up.")
+
 @celery.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
     sender.add_periodic_task(crontab(minute='*/5'), scrape_and_store_data.s())
+    sender.add_periodic_task(crontab(hour='*/1'), cleanup_old_data.s())  # Cleanup every hour
     
-    # Run the task immediately
+    # Run the tasks immediately
     scrape_and_store_data.apply_async()
+    cleanup_old_data.apply_async()
